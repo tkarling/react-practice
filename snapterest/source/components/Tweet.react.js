@@ -18,13 +18,11 @@ var Tweet = React.createClass({
     propTypes: {
         tweet: function(properties, propertyName, componentName) {
             var tweet = properties[propertyName];
-            //console.log("tweet", tweet);
 
             if(!tweet || !tweet.media) {
                 console.log('Tweet must be set & have an image', tweet);
                 return new Error('Tweet must be set & have an image');
             }
-
         },
         onImageClick: React.PropTypes.func
     },
@@ -39,7 +37,6 @@ var Tweet = React.createClass({
     render: function() {
         var tweet = this.props.tweet;
         var tweetMediaUrl = tweet.media[0].url;
-        //console.log("tweetMediaUrl", tweetMediaUrl);
 
         return (
             <div style={tweetStyle}>

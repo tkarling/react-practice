@@ -30,7 +30,7 @@ var CollectionControls = React.createClass({
     },
     toggleEditCollectionName: function() {
       this.setState({
-         isEditingName: ! isEditingName
+         isEditingName: ! this.state.isEditingName
       });
     },
 
@@ -48,7 +48,7 @@ var CollectionControls = React.createClass({
                 <CollectionRenameForm
                     name={this.state.name}
                     onChangeCollectionName={this.setCollectionName}
-                    onCancelCollectionNameChange={this.toggleEditCollectionName()}/>
+                    onCancelCollectionNameChange={this.toggleEditCollectionName}/>
             );
         }
 

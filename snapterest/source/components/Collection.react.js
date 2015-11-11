@@ -9,14 +9,13 @@ var Collection = React.createClass({
         var htmlString = ReactDOMServer.renderToStaticMarkup(
             <TweetList tweets={this.props.tweets}/>
         );
-        var htmlMarkUp = {
+        var htmlMarkup = {
             html: htmlString
         };
-        return JSON.stringify(htmlMarkUp);
+        return JSON.stringify(htmlMarkup);
     },
 
     getListOfTweetIds: function () {
-        //console.log("this.props.tweets", this.props.tweets);
         return Object.keys(this.props.tweets);
     },
 
@@ -28,7 +27,7 @@ var Collection = React.createClass({
         var noOfTweetsInCollection = this.getNoOfTweetsInCollecton();
         if(noOfTweetsInCollection > 0) {
             var tweets = this.props.tweets;
-            var htmlMarkUp = this.createHtmlMarkupStringOfTweetList();
+            var htmlMarkup = this.createHtmlMarkupStringOfTweetList();
             var removeAllTweetsFromCollection = this.props.onRemoveAllTweetsFromCollection;
             var handleRemoveTweetFromCollection = this.props.onRemoveTweetFromCollection;
 
@@ -36,7 +35,7 @@ var Collection = React.createClass({
                 <div>
                     <CollectionControls
                         noOfTweetsInCollection={noOfTweetsInCollection}
-                        htmlMarkUp = {htmlMarkUp}
+                        htmlMarkup = {htmlMarkup}
                         onRemoveAllTweetsFromCollection = {removeAllTweetsFromCollection} />
                     <TweetList
                         tweets={tweets}

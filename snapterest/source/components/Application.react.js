@@ -9,13 +9,11 @@ var Application = React.createClass({
         };
     },
     addTweetToCollection: function (tweet) {
-        //console.log("Application: addTweetToCollection", tweet);
         var collectionTweets = this.state.collectionTweets;
         collectionTweets[tweet.id] = tweet;
         this.setState({
             collectionTweets: collectionTweets
         });
-        //console.log("Application: addTweetToCollection this.state.collectionTweets", this.state.collectionTweets);
     },
     removeTweetFromCollection: function (tweet) {
         var collectionTweets = this.state.collectionTweets;
@@ -31,7 +29,6 @@ var Application = React.createClass({
     },
     render: function () {
         var tweets = this.state.collectionTweets;
-        //console.log("this.state.collectionTweets", this.state.collectionTweets);
         return (
             <div className="container-fluid">
                 <div className="row">

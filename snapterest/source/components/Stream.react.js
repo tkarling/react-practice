@@ -26,7 +26,6 @@ var Stream = React.createClass({
     render: function() {
         var tweet = this.state.tweet;
 
-        //<img src={tweet.media[0].url}/>
         if(tweet) {
             return (
                 <div>
