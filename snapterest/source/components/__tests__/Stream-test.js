@@ -1,4 +1,5 @@
 jest.dontMock('../Stream.react');
+jest.dontMock('object-assign');
 
 describe('Stream', function () {
     var React = require('react');
@@ -15,13 +16,7 @@ describe('Stream', function () {
         });
 
         it('gets initial state', function () {
-            //expect(stream.state.tweet).toBe(null);
-        });
-
-        it('sets tweet', function () {
-            var tweet = {id: "tweet1", content: "tweet1 content"};
-            stream.handleNewTweet(tweet);
-            expect(stream.state.tweet).toEqual(tweet);
+            expect(stream.state.tweet).toBe(undefined);
         });
 
 
