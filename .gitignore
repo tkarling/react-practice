@@ -3,3 +3,5 @@ snapterest/node_modules/*
 
 
 snapterest/.idea/*
+
+snapterest/build/snapterest.js

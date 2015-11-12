@@ -1,6 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Application = require('./components/Application.react');
+var WebAPIUtils = require('./utils/WebAPIUtils');
+
 
 if (typeof window !== 'undefined') {
     window.React = React;
@@ -11,6 +13,8 @@ if (typeof window !== 'undefined') {
 //    <li className ="item-2">Item 2</li>
 //    <li className ="item-3">Item 3</li>
 //</ul>;
+
+WebAPIUtils.initializeStreamOfTweets();
 
 ReactDOM.render(
     //listOfItems,
