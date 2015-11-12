@@ -1,6 +1,5 @@
-var AppDispatcher = require('../dispatcher/AppDispatcher');
+import AppDispatcher from '../dispatcher/AppDispatcher';
 var EventEmitter = require('events').EventEmitter;
-var assign = require('object-assign');
 
 var CHANGE_EVENT = 'change';
 
@@ -24,24 +23,24 @@ function setCollectionName(name) {
 }
 
 function emitChange() {
-    CollectionStore.emit(CHANGE_EVENT);
+    collectionStore.emit(CHANGE_EVENT);
 }
 
-var CollectionStore = assign({}, EventEmitter.prototype, {
-   addChangeListener: function (callback) {
-       this.on(CHANGE_EVENT, callback);
-   },
-    removeChangeListener: function (callback) {
+class CollectionStore extends EventEmitter {
+    addChangeListener(callback) {
+        this.on(CHANGE_EVENT, callback);
+    }
+    removeChangeListener(callback) {
         this.removeChangeListener(CHANGE_EVENT, callback);
-    },
-    getCollectionTweets: function() {
+    }
+    getCollectionTweets () {
         return collectionTweets;
-    },
-    getCollectionName: function() {
+    }
+    getCollectionName() {
         return collectionName;
     }
 
-});
+};
 
 function handleAction(action) {
     switch(action.type) {
@@ -70,6 +69,7 @@ function handleAction(action) {
     }
 }
 
-CollectionStore.dispatchToken = AppDispatcher.register(handleAction);
+var collectionStore = new CollectionStore();
+collectionStore.dispatchToken = AppDispatcher.register(handleAction);
 
-module.exports = CollectionStore;
+module.exports = collectionStore;

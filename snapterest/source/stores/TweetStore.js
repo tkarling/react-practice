@@ -1,6 +1,21 @@
-var AppDispatcher = require('../dispatcher/AppDispatcher');
+import AppDispatcher from '../dispatcher/AppDispatcher';
 var EventEmitter = require('events').EventEmitter;
-var assign = require('object-assign');
+
+var CHANGE_EVENT = 'change';
+
+class TweetStore extends EventEmitter {
+    addChangeListener(callback) {
+        this.on(CHANGE_EVENT, callback);
+    }
+
+    removeChangeListene(callback) {
+        this.removeListener(CHANGE_EVENT, callback);
+    }
+
+    getTweet () {
+        return tweet;
+    }
+};
 
 var tweet = null;
 
@@ -9,22 +24,8 @@ function setTweet(receivedTweet) {
 }
 
 function emitChange() {
-    TweetStore.emit('change');
+    tweetStore.emit(CHANGE_EVENT);
 }
-
-var TweetStore = assign({}, EventEmitter.prototype, {
-   addChangeListener: function(callback) {
-       this.on('change', callback);
-   },
-
-    removeChangeListener: function (callback) {
-        this.removeListener('change', callback);
-    },
-
-    getTweet: function () {
-        return tweet;
-    }
-});
 
 function handleAction(action) {
     if(action.type === 'receive_tweet') {
@@ -33,6 +34,7 @@ function handleAction(action) {
     }
 }
 
+var tweetStore = new TweetStore();
 TweetStore.dispatchToken = AppDispatcher.register(handleAction);
 
-module.exports = TweetStore;
+export default tweetStore;

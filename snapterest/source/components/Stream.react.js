@@ -1,7 +1,7 @@
 var React = require('react');
 var StreamTweet = require('./StreamTweet.react');
 var Header = require('./Header.react');
-var TweetStore = require('../stores/TweetStore');
+import TweetStore from '../stores/TweetStore';
 
 var Stream = React.createClass({
     getInitialState: function() {

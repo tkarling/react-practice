@@ -12,7 +12,7 @@ var livereload = require('gulp-livereload');
 
 gulp.task('default', function () {
     return browserify('./source/app.js', { debug: true })
-        .transform(babelify, {"presets": ["react"]})
+        .transform(babelify, {presets: ["react", "es2015"]})
         .bundle()
         .pipe(source('snapterest.js'))
         .pipe(gulp.dest('./build/'))

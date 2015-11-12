@@ -2,7 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var Header = require('./Header.react');
 var Button = require('./Button.react');
-var CollectionActionCreators = require('../actions/CollectionActionCreators');
+import CollectionActionCreators from '../actions/CollectionActionCreators';
 var CollectionStore = require('../stores/CollectionStore');
 
 

@@ -3,7 +3,7 @@ var Header = require('./Header.react');
 var Button = require('./Button.react');
 var CollectionRenameForm = require('./CollectionRenameForm.react');
 var CollectionExportForm = require('./CollectionExportForm.react');
-var CollectionActionCreators = require('../actions/CollectionActionCreators');
+import CollectionActionCreators from '../actions/CollectionActionCreators';
 var CollectionStore = require('../stores/CollectionStore');
 
 var CollectionControls = React.createClass({
