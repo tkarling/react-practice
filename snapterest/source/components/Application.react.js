@@ -3,32 +3,7 @@ var Stream = require('./Stream.react');
 var Collection = require('./Collection.react');
 
 var Application = React.createClass({
-    //getInitialState: function () {
-    //    return {
-    //        collectionTweets: {}
-    //    };
-    //},
-    //addTweetToCollection: function (tweet) {
-    //    var collectionTweets = this.state.collectionTweets;
-    //    collectionTweets[tweet.id] = tweet;
-    //    this.setState({
-    //        collectionTweets: collectionTweets
-    //    });
-    //},
-    //removeTweetFromCollection: function (tweet) {
-    //    var collectionTweets = this.state.collectionTweets;
-    //    delete collectionTweets[tweet.id];
-    //    this.setState({
-    //        collectionTweets: collectionTweets
-    //    });
-    //},
-    //removeAllTweetsFromCollection: function () {
-    //    this.setState({
-    //        collectionTweets: {}
-    //    });
-    //},
     render: function () {
-        //var tweets = this.state.collectionTweets;
         return (
             <div className="container-fluid">
                 <div className="row">

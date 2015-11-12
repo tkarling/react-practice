@@ -17,7 +17,6 @@ var Collection = React.createClass({
         this.setState({
             collectionTweets: CollectionStore.getCollectionTweets()
         })
-        console.log("Collection: onCollectionChange", this.state.collectionTweets);
     },
 
     componentDidMount: function() {
@@ -30,7 +29,7 @@ var Collection = React.createClass({
 
     createHtmlMarkupStringOfTweetList: function () {
         var htmlString = ReactDOMServer.renderToStaticMarkup(
-            <TweetList tweets={this.props.tweets}/>
+            <TweetList tweets={this.state.collectionTweets}/>
         );
         var htmlMarkup = {
             html: htmlString
@@ -38,24 +37,11 @@ var Collection = React.createClass({
         return JSON.stringify(htmlMarkup);
     },
 
-    getListOfTweetIds: function () {
-        return Object.keys(this.state.collectionTweets);
-    },
-
-    getNoOfTweetsInCollecton: function (collectionTweets) {
-        return this.getListOfTweetIds().length;
-    },
-
     render: function () {
-        //var collectionTweets = this.state.collectionTweets;
-        //var noOfTweetsInCollection = CollectionUtils.getNumberOfTweetsInCollection(collectionTweets);
         var collectionTweets = this.state.collectionTweets;
-        var noOfTweetsInCollection = this.getNoOfTweetsInCollecton(this.getListOfTweetIds());
-        console.log("Collection: render", noOfTweetsInCollection, collectionTweets);
+        var noOfTweetsInCollection = CollectionUtils.getNumberOfTweetsInCollection(collectionTweets);
         if(noOfTweetsInCollection > 0) {
-            //var htmlMarkup = this.createHtmlMarkupStringOfTweetList();
-            var htmlMarkup = "";
-            //console.log("Collection: Moikka", noOfTweetsInCollection, collectionTweets);
+            var htmlMarkup = this.createHtmlMarkupStringOfTweetList();
 
             return(
                 <div>

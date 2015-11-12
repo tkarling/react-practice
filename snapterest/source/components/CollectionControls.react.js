@@ -37,13 +37,6 @@ var CollectionControls = React.createClass({
       });
     },
 
-    //setCollectionName: function(name) {
-    //    this.setState({
-    //        name: name,
-    //        isEditingName: false
-    //    });
-    //},
-
     removeAllTweetsFromCollection: function() {
         CollectionActionCreators.removeAllTweetsFromCollection();
     },

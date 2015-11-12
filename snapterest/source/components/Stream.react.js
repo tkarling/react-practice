@@ -1,5 +1,4 @@
 var React = require('react');
-//var SnapkiteStreamClient = require('snapkite-stream-client');
 var StreamTweet = require('./StreamTweet.react');
 var Header = require('./Header.react');
 var TweetStore = require('../stores/TweetStore');

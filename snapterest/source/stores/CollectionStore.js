@@ -46,7 +46,6 @@ var CollectionStore = assign({}, EventEmitter.prototype, {
 function handleAction(action) {
     switch(action.type) {
         case 'add_tweet_to_collection':
-            console.log("store adding tweet", action);
             addTweetToCollection(action.tweet);
             emitChange();
             break;
