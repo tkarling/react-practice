@@ -1,11 +1,11 @@
-var React = require('react');
+import React from 'react';
 
 var formStyle = {
     display: 'inline-block'
 };
 
-var CollectionExportForm = React.createClass({
-    render: function() {
+class CollectionExportForm extends React.Component {
+    render() {
         return (
             <form action="http://codepen.io/pen/define" method="POST"
                   target="_blank" style={formStyle}>
@@ -14,6 +14,6 @@ var CollectionExportForm = React.createClass({
             </form>
         );
     }
-});
+}
 
-module.exports = CollectionExportForm;
+export default CollectionExportForm;

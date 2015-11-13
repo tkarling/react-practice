@@ -3,6 +3,16 @@ var EventEmitter = require('events').EventEmitter;
 
 var CHANGE_EVENT = 'change';
 
+var tweet = null;
+
+function setTweet(receivedTweet) {
+    tweet = receivedTweet;
+}
+
+function emitChange() {
+    tweetStore.emit(CHANGE_EVENT);
+}
+
 class TweetStore extends EventEmitter {
     addChangeListener(callback) {
         this.on(CHANGE_EVENT, callback);
@@ -17,15 +27,6 @@ class TweetStore extends EventEmitter {
     }
 };
 
-var tweet = null;
-
-function setTweet(receivedTweet) {
-    tweet = receivedTweet;
-}
-
-function emitChange() {
-    tweetStore.emit(CHANGE_EVENT);
-}
 
 function handleAction(action) {
     if(action.type === 'receive_tweet') {

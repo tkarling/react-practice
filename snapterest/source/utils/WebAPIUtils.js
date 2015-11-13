@@ -1,4 +1,4 @@
-var SnapkiteStreamClient = require('snapkite-stream-client');
+import SnapkiteStreamClient from 'snapkite-stream-client';
 import TweetActionCreators from '../actions/TweetActionCreators';
 
 function initializeStreamOfTweets() {
@@ -12,7 +12,7 @@ function closeStreamOfTweets() {
     SnapkiteStreamClient.destroyStream();
 }
 
-module.exports = {
+export default {
     initializeStreamOfTweets: initializeStreamOfTweets,
     closeStreamOfTweets: closeStreamOfTweets
 }

@@ -72,4 +72,4 @@ function handleAction(action) {
 var collectionStore = new CollectionStore();
 collectionStore.dispatchToken = AppDispatcher.register(handleAction);
 
-module.exports = collectionStore;
+export default collectionStore;

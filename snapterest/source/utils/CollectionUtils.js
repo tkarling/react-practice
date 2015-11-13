@@ -9,7 +9,7 @@ function isEmptyCollection(collection) {
     return (getNumberOfTweetsInCollection(collection) === 0);
 }
 
-module.exports = {
+export default  {
     getNumberOfTweetsInCollection: getNumberOfTweetsInCollection,
     isEmptyCollection: isEmptyCollection
 }

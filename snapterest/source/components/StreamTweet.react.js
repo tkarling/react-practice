@@ -1,19 +1,20 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var Header = require('./Header.react');
-var Tweet = require('./Tweet.react');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Header from './Header.react';
+import Tweet from './Tweet.react';
 import CollectionActionCreators from '../actions/CollectionActionCreators';
 
 
-var StreamTweet = React.createClass({
-    getInitialState: function () {
-        //console.log("StreamTweet: 1. getInitialState()");
-        return {
+class StreamTweet extends React.Component {
+    constructor() {
+        super();
+        this.state = {
             numberOfCharsIsIncreasing: null,
             headerText: null
-        }
-    },
-    componentWillMount: function () {
+        };
+    }
+
+    componentWillMount () {
         //console.log("StreamTweet: 2. componentWillMount()");
 
         this.setState({
@@ -26,15 +27,16 @@ var StreamTweet = React.createClass({
             noOfDisplayedTweets: 1
         }
 
-    },
-    componentDidMount: function () {
+    }
+    componentDidMount() {
         //console.log("StreamTweet: 3.1. componentDidMount()");
 
         var componentDOMRepresentation = ReactDOM.findDOMNode( this);
         window.snapterest.headerHtml = componentDOMRepresentation.children[0].outerHTML;
         window.snapterest.tweetHtml = componentDOMRepresentation.children[1].outerHTML;
-    },
-    componentWillReceiveProps: function(nextProps) {
+    }
+
+    componentWillReceiveProps(nextProps) {
         //console.log("StreamTweet: 4. componentWillReceiveProps()");
 
         var currentTweetLength = this.props.tweet.text.length;
@@ -57,31 +59,31 @@ var StreamTweet = React.createClass({
         });
 
         window.snapterest.noOfReceivedTweets++;
-    },
+    }
 
-    shouldComponentUpdate: function(nextProps, nextState) {
+    shouldComponentUpdate(nextProps, nextState) {
         //console.log("StreamTweet: 5. shouldComponentUpdate()");
         return (nextProps.tweet.text.length > 1);
-    },
+    }
 
-    componentWillUpdate: function(nextProps, nextState) {
+    componentWillUpdate(nextProps, nextState) {
         //console.log("StreamTweet: 6. componentWillUpdate()");
 
-    },
-
-    componentDidUpdate: function(precProps, prevState) {
+    }
+    componentDidUpdate(precProps, prevState) {
         //console.log("StreamTweet: 7. componentDidUpdate()");
         window.snapterest.noOfDisplayedTweets++;
-    },
+    }
 
-    componentWillUnmount: function() {
+    componentWillUnmount() {
         //console.log("StreamTweet: 8. componentWillUnmount()");
         delete window.snapterest;
-    },
-    addTweetToCollection: function(tweet) {
+    }
+    addTweetToCollection(tweet) {
         CollectionActionCreators.addTweetToCollection(tweet)
-    },
-    render: function () {
+    }
+
+    render () {
         //console.log("StreamTweet: 3. render");
         return (
             <section>
@@ -92,8 +94,8 @@ var StreamTweet = React.createClass({
             </section>
         )
     }
-});
+}
 
-module.exports = StreamTweet;
+export default StreamTweet;
 
 

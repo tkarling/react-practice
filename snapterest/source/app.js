@@ -1,7 +1,7 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var Application = require('./components/Application.react');
-var WebAPIUtils = require('./utils/WebAPIUtils');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Application from './components/Application.react';
+import WebAPIUtils from './utils/WebAPIUtils';
 
 
 if (typeof window !== 'undefined') {
